@@ -1,0 +1,71 @@
+{
+  "name": "fast-string",
+  "version": "0.0.0",
+  "description": "A utility for fast string comparison by character codes.",
+  "type": "module",
+  "main": "dist/fast-string.cjs",
+  "module": "dist/fast-string.js",
+  "types": "dist/fast-string.d.ts",
+  "exports": {
+    "require": {
+      "types": "./dist/fast-string.d.cts",
+      "default": "./dist/fast-string.cjs"
+    },
+    "import": {
+      "types": "./dist/fast-string.d.ts",
+      "default": "./dist/fast-string.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix"
+    ]
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/nzakas"
+  },
+  "scripts": {
+    "build": "rollup -c && tsc && node -e \"require('fs').copyFileSync('./dist/fast-string.d.ts', './dist/fast-string.d.cts')\"",
+    "prepare": "npm run build",
+    "lint": "eslint src/ tests/",
+    "pretest": "npm run build",
+    "test": "mocha tests/fast-string.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/humanwhocodes/fast-string.git"
+  },
+  "keywords": [
+    "string",
+    "compare",
+    "equals",
+    "performance"
+  ],
+  "author": "Nicholas C. Zakas",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@tsconfig/node16": "^16.1.1",
+    "@types/mocha": "^10.0.3",
+    "@types/node": "22.10.1",
+    "eslint": "^9.0.0",
+    "lint-staged": "15.2.10",
+    "mocha": "11.0.0",
+    "rollup": "4.24.2",
+    "typescript": "5.7.2",
+    "yorkie": "2.0.0"
+  },
+  "engines": {
+    "node": "^18.0.0 || ^20.0.0 || >=22.0.0"
+  }
+}
