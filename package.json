@@ -1,6 +1,6 @@
 {
   "name": "fast-string",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A utility for fast string comparison by character codes.",
   "type": "module",
   "main": "dist/fast-string.cjs",
